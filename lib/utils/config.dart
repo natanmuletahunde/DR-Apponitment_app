@@ -1,42 +1,55 @@
 import 'package:flutter/material.dart';
 
 class Config {
-  static  MediaQueryData? mediaQueryData;
+  static MediaQueryData? mediaQueryData;
   static double? screenWidth;
   static double? screenHeight;
 
-  // width and height initialization
-  void init(){
-    MediaQueryData  = MediaQuery.of(context);
-    screenHeight= mediaQueryData!.size.width;
-    screenHeight = mediaQueryData!.size.height;
+  // Method to initialize MediaQuery data
+  static void init(BuildContext context) {
+    mediaQueryData = MediaQuery.of(context); // Correctly accessing MediaQuery with context
+    screenWidth = mediaQueryData!.size.width; // Initialize screenWidth
+    screenHeight = mediaQueryData!.size.height; // Initialize screenHeight
   }
-  static get widthSize{
+
+  // Getter for screen width
+  static double? get widthSize {
     return screenWidth;
   }
-    static get heightSize{
+
+  // Getter for screen height
+  static double? get heightSize {
     return screenHeight;
   }
 
-// define spacing height 
-static const spaceSmall = SizedBox(height: 25,);
-static final spaceMedium= SizedBox(height: screenHeight!* 0.05,);
-static final SpaceBig = SizedBox(height: screenHeight!* 0.08,);
+  // Define spacing heights
+  static const spaceSmall = SizedBox(height: 25);
 
+  // Use screenHeight safely (check for null)
+  static SizedBox get spaceMedium {
+    return SizedBox(height: (screenHeight ?? 0) * 0.05);
+  }
 
-// textform field border 
- static const OutlineBorder = OutlineInputBorder(
-  borderRadius: BorderRadius.all(Radius.circular(8)),
- );
+  static SizedBox get spaceBig {
+    return SizedBox(height: (screenHeight ?? 0) * 0.08);
+  }
 
-static const focusBorder = OutlineInputBorder(
-  borderRadius: BorderRadius.all(Radius.circular(8)),
-  borderSide: BorderSide(
-    color: Colors.greenAccent,
-  )
-);
+  // TextFormField borders
+  static const OutlineInputBorder outlineBorder = OutlineInputBorder(
+    borderRadius: BorderRadius.all(Radius.circular(8)),
+  );
 
-// define spacing height 
- 
+  static const OutlineInputBorder focusBorder = OutlineInputBorder(
+    borderRadius: BorderRadius.all(Radius.circular(8)),
+    borderSide: BorderSide(
+      color: Colors.greenAccent,
+    ),
+  );
 
+  static const OutlineInputBorder errorBorder = OutlineInputBorder(
+    borderRadius: BorderRadius.all(Radius.circular(8)),
+    borderSide: BorderSide(
+      color: Colors.red,
+    ),
+  );
 }
