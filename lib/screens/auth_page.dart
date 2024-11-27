@@ -73,8 +73,7 @@ class _AuthPageState extends State<AuthPage> {
                 SocialButton(socail: 'facebook'),  
               ],
              ) ,
-             Config.spaceSmall,
-               
+             Config.spaceSmall  
             ],
           ),
         ),

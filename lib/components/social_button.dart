@@ -7,10 +7,11 @@ class SocialButton extends StatelessWidget {
   final String socail;
   @override
   Widget build(BuildContext context) {
+    Config.init(context);
     return OutlinedButton(
       onPressed: () {}, //
       child: SizedBox(
-        width: (Config.widthSize ?? 0) * 0.4,
+        width: Config.screenWidth!*0.4,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
