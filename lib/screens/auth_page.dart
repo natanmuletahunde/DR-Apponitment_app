@@ -39,7 +39,7 @@ class _AuthPageState extends State<AuthPage> {
                 ),
               ),
               Config.spaceSmall,
-             LoginForm(),
+              LoginForm(),
               Config.spaceSmall,
               Center(
                 child: TextButton(
@@ -63,17 +63,23 @@ class _AuthPageState extends State<AuthPage> {
                     color: Colors.grey.shade500,
                   ),
                 ),
-              ) ,
+              ),
               Config.spaceSmall,
-             Row(
-              mainAxisAlignment:  MainAxisAlignment.spaceEvenly,
-              children:  <Widget>[
-                // lets build socail buttons 
-                SocialButton(socail: 'google'),
-                SocialButton(socail: 'facebook'),  
-              ],
-             ) ,
-             Config.spaceSmall  
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: <Widget>[
+                  SocialButton(
+                    socail: 'google',
+                    icon: Image.asset('lib/assets/images/google.png'),
+                  ),
+                  SocialButton(
+                    socail: 'facebook',
+                    icon: Image.asset('lib/assets/images/facbook.png'),
+                  ),
+                ],
+              ),
+
+              Config.spaceSmall
             ],
           ),
         ),

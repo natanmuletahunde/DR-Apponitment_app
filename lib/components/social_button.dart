@@ -2,7 +2,7 @@ import 'package:drappointment/utils/config.dart';
 import 'package:flutter/material.dart';
 
 class SocialButton extends StatelessWidget {
-  const SocialButton({super.key, required this.socail});
+  const SocialButton({super.key, required this.socail, required Image icon});
 
   final String socail;
   @override
