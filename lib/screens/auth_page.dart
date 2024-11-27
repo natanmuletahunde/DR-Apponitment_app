@@ -22,14 +22,21 @@ class _AuthPageState extends State<AuthPage> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-            Text(
-  AppText.enText['Welcome_text']!,
-  style: const TextStyle(
-    fontSize: 36,
-    fontWeight: FontWeight.bold,
-  ),
-),
-Config.spaceSmall
+              Text(
+                AppText.enText['Welcome_text']!,
+                style: const TextStyle(
+                  fontSize: 36,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              Text(
+                AppText.enText['SignIn_text']!,
+                style: const TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              Config.spaceSmall
             ],
           ),
         ),
