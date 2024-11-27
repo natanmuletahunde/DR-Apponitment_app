@@ -1,5 +1,4 @@
 import 'package:drappointment/components/login_form.dart';
-import 'package:drappointment/components/social_button.dart';
 import 'package:drappointment/utils/config.dart';
 import 'package:drappointment/utils/text.dart';
 import 'package:flutter/material.dart';
@@ -68,13 +67,41 @@ class _AuthPageState extends State<AuthPage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
-                  SocialButton(
-                    socail: 'google',
-                    icon: Image.asset('lib/assets/images/google.png'),
+                  Flexible(
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                      child: ElevatedButton(
+                        onPressed: () {
+                          // Action for Google button
+                        },
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.blue, // Button color
+                          padding: const EdgeInsets.symmetric(
+                              vertical: 12, horizontal: 16),
+                          textStyle: const TextStyle(
+                              fontSize: 14, fontWeight: FontWeight.bold),
+                        ),
+                        child: const Text('Google'),
+                      ),
+                    ),
                   ),
-                  SocialButton(
-                    socail: 'facebook',
-                    icon: Image.asset('lib/assets/images/facbook.png'),
+                  Flexible(
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                      child: ElevatedButton(
+                        onPressed: () {
+                          // Action for Facebook button
+                        },
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.blueAccent, // Button color
+                          padding: const EdgeInsets.symmetric(
+                              vertical: 12, horizontal: 16),
+                          textStyle: const TextStyle(
+                              fontSize: 14, fontWeight: FontWeight.bold),
+                        ),
+                        child: const Text('Facebook'),
+                      ),
+                    ),
                   ),
                 ],
               ),
