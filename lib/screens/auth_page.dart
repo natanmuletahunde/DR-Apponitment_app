@@ -53,7 +53,23 @@ class _AuthPageState extends State<AuthPage> {
               ),
               // add social button sign in
               const Spacer(),
-               
+              Center(
+                child: Text(
+                  AppText.enText['social-login']!,
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.normal,
+                    color: Colors.grey.shade500,
+                  ),
+                ),
+              ) ,
+              Config.spaceSmall,
+             Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: const <Widget>[
+                // lets build socail buttons 
+              ],
+             )   
             ],
           ),
         ),
