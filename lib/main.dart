@@ -1,3 +1,4 @@
+import 'package:drappointment/utils/config.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -6,17 +7,37 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-  static final navigatorKey = GlobalKey<NavigatorState>();
+  static final navigatorKey = GlobalKey<NavigatorState>();// used for managing the route of the app 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      navigatorKey: navigatorKey,
       title: 'Flutter Demo',
       theme: ThemeData(
-      
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+        // pre-defined input decortaion
+        inputDecorationTheme:const InputDecorationTheme(
+          focusColor: Config.primaryColor,
+          border: Config.outlineBorder,
+          focusedBorder: Config.focusBorder,
+          errorBorder: Config.errorBorder,
+          enabledBorder: Config.outlineBorder,
+          floatingLabelStyle: TextStyle(color: Config.primaryColor),
+          prefixIconColor: Colors.black38,
+        ) ,
+
+         scaffoldBackgroundColor:Colors.white,
+        bottomNavigationBarTheme: BottomNavigationBarThemeData(
+          backgroundColor: Config.primaryColor,
+          selectedItemColor: Colors.white,
+          showSelectedLabels: true,
+          showUnselectedLabels: false,
+          unselectedItemColor:Colors.grey.shade700,
+          elevation: 10,
+          type:BottomNavigationBarType.fixed,
+
+        )
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(),
     );
   }
 }
