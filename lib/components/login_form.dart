@@ -9,7 +9,7 @@ class LoginForm extends StatefulWidget {
 class _LoginFormState extends State<LoginForm> {
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return const Center(
       child: Text('Login Text'),
     );
   }
