@@ -1,4 +1,5 @@
 import 'package:drappointment/components/login_form.dart';
+import 'package:drappointment/components/social_button.dart';
 import 'package:drappointment/utils/config.dart';
 import 'package:drappointment/utils/text.dart';
 import 'package:flutter/material.dart';
@@ -68,8 +69,12 @@ class _AuthPageState extends State<AuthPage> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: const <Widget>[
                 // lets build socail buttons 
+                SocialButton(socail: 'google'),
+                SocialButton(socail: 'facebook'),  
               ],
-             )   
+             ) ,
+             Config.spaceSmall,
+               
             ],
           ),
         ),
