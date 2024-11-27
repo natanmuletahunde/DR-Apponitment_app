@@ -1,3 +1,4 @@
+import 'package:drappointment/components/login_form.dart';
 import 'package:drappointment/utils/config.dart';
 import 'package:drappointment/utils/text.dart';
 import 'package:flutter/material.dart';
@@ -36,7 +37,9 @@ class _AuthPageState extends State<AuthPage> {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              Config.spaceSmall
+              Config.spaceSmall,
+              const LoginForm(),
+              Config.spaceSmall,
             ],
           ),
         ),
