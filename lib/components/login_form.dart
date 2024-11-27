@@ -1,3 +1,4 @@
+import 'package:drappointment/components/button.dart';
 import 'package:drappointment/utils/config.dart';
 import 'package:flutter/material.dart';
 
@@ -62,8 +63,13 @@ class _LoginFormState extends State<LoginForm> {
               ),
             ),
           ),
-           Config.spaceSmall,
-           //  login button
+          Config.spaceSmall,
+          Button(
+              title: 'Sign In ',
+              width: double.infinity,
+              onPressed: () {},
+              disable: false)
+          //  login button
         ],
       ),
     );

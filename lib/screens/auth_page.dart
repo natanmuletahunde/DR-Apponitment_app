@@ -50,7 +50,10 @@ class _AuthPageState extends State<AuthPage> {
                         color: Colors.black,
                       )),
                 ),
-              )
+              ),
+              // add social button sign in
+              const Spacer(),
+               
             ],
           ),
         ),
