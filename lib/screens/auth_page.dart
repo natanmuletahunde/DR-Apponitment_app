@@ -59,7 +59,7 @@ class _AuthPageState extends State<AuthPage> {
                   style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.normal,
-                    color: Colors.grey.shade500,
+                    color: Colors.white,
                   ),
                 ),
               ),
@@ -75,13 +75,19 @@ class _AuthPageState extends State<AuthPage> {
                           // Action for Google button
                         },
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.blue, // Button color
+                          backgroundColor:
+                              Config.primaryColor,// Button background color
                           padding: const EdgeInsets.symmetric(
                               vertical: 12, horizontal: 16),
-                          textStyle: const TextStyle(
-                              fontSize: 14, fontWeight: FontWeight.bold),
                         ),
-                        child: const Text('Google'),
+                        child: const Text(
+                          'Google',
+                          style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white, // White text color
+                          ),
+                        ),
                       ),
                     ),
                   ),
@@ -93,13 +99,19 @@ class _AuthPageState extends State<AuthPage> {
                           // Action for Facebook button
                         },
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.blueAccent, // Button color
+                          backgroundColor:
+                              Config.primaryColor, // Button background color
                           padding: const EdgeInsets.symmetric(
                               vertical: 12, horizontal: 16),
-                          textStyle: const TextStyle(
-                              fontSize: 14, fontWeight: FontWeight.bold),
                         ),
-                        child: const Text('Facebook'),
+                        child: const Text(
+                          'Facebook',
+                          style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white, // White text color
+                          ),
+                        ),
                       ),
                     ),
                   ),
