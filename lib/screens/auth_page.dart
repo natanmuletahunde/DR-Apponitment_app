@@ -39,13 +39,13 @@ class _AuthPageState extends State<AuthPage> {
                 ),
               ),
               Config.spaceSmall,
-              const LoginForm(),
+             LoginForm(),
               Config.spaceSmall,
               Center(
                 child: TextButton(
                   onPressed: () {},
                   child: Text(AppText.enText['forgot-password']!,
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
                         color: Colors.black,
@@ -66,8 +66,8 @@ class _AuthPageState extends State<AuthPage> {
               ) ,
               Config.spaceSmall,
              Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: const <Widget>[
+              mainAxisAlignment:  MainAxisAlignment.spaceEvenly,
+              children:  <Widget>[
                 // lets build socail buttons 
                 SocialButton(socail: 'google'),
                 SocialButton(socail: 'facebook'),  
