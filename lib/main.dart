@@ -37,7 +37,14 @@ class MyApp extends StatelessWidget {
 
         )
       ),
-      home: const MyHomePage(),
+      initialRoute: '/',
+      routes: {
+        // this is inital route
+        '/':(context)=>const 
+        },
+      
+
+      home: const MyHomePage(title: '',),
     );
   }
 }
