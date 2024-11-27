@@ -1,3 +1,4 @@
+import 'package:drappointment/screens/auth_page.dart';
 import 'package:drappointment/utils/config.dart';
 import 'package:flutter/material.dart';
 
@@ -40,7 +41,10 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         // this is inital route
-        '/':(context)=>const 
+        // which is auth page(login and sign up)
+        '/':(context)=>const AuthPage(),
+        // this is for main layout after login
+        'main':(context)=> 
         },
       
 
