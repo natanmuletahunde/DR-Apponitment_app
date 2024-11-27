@@ -1,11 +1,13 @@
+import 'package:drappointment/utils/config.dart';
 import 'package:flutter/material.dart';
+
 class Button extends StatelessWidget {
-  const Button({super.key ,
-  required this.title,
-  required this.width,
-  required this.onPressed,
-  required this.disable
-  });
+  const Button(
+      {super.key,
+      required this.title,
+      required this.width,
+      required this.onPressed,
+      required this.disable});
   final double width;
   final String title;
   final bool disable;
@@ -13,6 +15,20 @@ class Button extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return SizedBox(
+        width: width,
+        child: ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            backgroundColor:
+                Config.primaryColor,
+            foregroundColor: Colors
+                .white, 
+          ),
+          onPressed: disable ? null : onPressed,
+          child: Text(
+            title,
+            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+          ),
+        ));
   }
 }
