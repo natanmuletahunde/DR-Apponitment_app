@@ -5,7 +5,7 @@ class AppText {
        'SignIn_text':'Sign In to your account',
        'registered_text':'Already have an account?',
        'registere_text':
-             'you can easily sign up,and connect to the Doctor nearby you',
+       'you can easily sign up,and connect to the Doctor nearby you',
        'signUp_text':'Don\'t have an account',
        'social-login':'Or Containe with social account',
        'forgot-password':'Forgot your password'
