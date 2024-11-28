@@ -21,7 +21,11 @@ class _AppointmentCardState extends State<AppointmentCard> {
         color: Colors.transparent,
         child: Padding(
           padding: EdgeInsets.all(20),
-          child: Column(children: <Widget>[]),
+          child: Column(children: <Widget>[
+             CircleAvatar(
+                  backgroundImage: AssetImage('assets/images/profile1.jpg'), 
+                ),
+          ]),
         ),
       ),
     );
