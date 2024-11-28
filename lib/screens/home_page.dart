@@ -1,3 +1,4 @@
+import 'package:drappointment/components/appointment_card.dart';
 import 'package:drappointment/utils/config.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -50,6 +51,7 @@ class _HomePageState extends State<HomePage> {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
+    
           const Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
@@ -119,8 +121,10 @@ class _HomePageState extends State<HomePage> {
             style: TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.bold,
-            )),
+            )
+            ),
           Config.spaceSmall,
+           const AppointmentCard(),
           // display appointment Card here
           // lets create appointment card widget
         ],
