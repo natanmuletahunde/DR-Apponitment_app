@@ -48,13 +48,13 @@ class _AppointmentPageState extends State<AppointmentPage> {
       return schedule['status'] == status.name;
     }).toList();
 
-    return const SafeArea(
+    return SafeArea(
       child: Padding(
-        padding: EdgeInsets.only(left: 20, top: 20, right: 20),
+        padding: const EdgeInsets.only(left: 20, top: 20, right: 20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-            Text(
+            const Text(
               'Appointment Schedule',
               textAlign: TextAlign.center,
               style: TextStyle(
@@ -63,6 +63,39 @@ class _AppointmentPageState extends State<AppointmentPage> {
               ),
             ),
             Config.spaceSmall,
+            Stack(
+               children: [
+                Container(
+                width: double.infinity,
+                height: 40,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                    for(FilterStatus filterStatus in FilterStatus.values)
+                      Expanded(child: GestureDetector(
+                        onTap:() {
+                           setState(() {
+                             if(filterStatus ==FilterStatus.upcoming){
+                              status= FilterStatus.upcoming;
+                              _alignment = Alignment.centerLeft;
+                             }
+                             else if (FilterStatus==FilterStatus.complete){
+                              status= FilterStatus.complete;
+                              _alignment = Alignment.centerLeft;
+                             }
+                           });
+                        },
+                      ))
+                    
+                    ],
+                ),
+                )
+               ],
+            )
           ],
         ),
       ),
