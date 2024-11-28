@@ -10,7 +10,10 @@ class AppointmentPage extends StatefulWidget {
 class _AppointmentPageState extends State<AppointmentPage> {
   @override
   Widget build(BuildContext context) {
-    return Center(
+    // in this appointment page
+    // there are 3 status  ,upcoming, complete and cancel
+    // so need to create 3 status tabs for filtering Appointments status 
+    return const Center(
       child: Text('Appointment page'),
     );
   }
