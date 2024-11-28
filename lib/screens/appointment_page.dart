@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:drappointment/utils/config.dart';
+import 'package:flutter/material.dart';
 
 class AppointmentPage extends StatefulWidget {
   const AppointmentPage({super.key});
@@ -64,38 +64,65 @@ class _AppointmentPageState extends State<AppointmentPage> {
             ),
             Config.spaceSmall,
             Stack(
-               children: [
+              children: [
                 Container(
-                width: double.infinity,
-                height: 40,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: Row(
+                  width: double.infinity,
+                  height: 40,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                    for(FilterStatus filterStatus in FilterStatus.values)
-                      Expanded(child: GestureDetector(
-                        onTap:() {
-                           setState(() {
-                             if(filterStatus ==FilterStatus.upcoming){
-                              status= FilterStatus.upcoming;
-                              _alignment = Alignment.centerLeft;
-                             }
-                             else if (FilterStatus==FilterStatus.complete){
-                              status= FilterStatus.complete;
-                              _alignment = Alignment.centerLeft;
-                             }
-                           });
-                        },
-                      ))
-                    
+                      for (FilterStatus filterStatus in FilterStatus.values)
+                        Expanded(
+                          child: GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                if (filterStatus == FilterStatus.upcoming) {
+                                  status = FilterStatus.upcoming;
+                                  _alignment = Alignment.centerLeft;
+                                } else if (filterStatus == FilterStatus.complete) {
+                                  status = FilterStatus.complete;
+                                  _alignment = Alignment.center;
+                                } else if (filterStatus == FilterStatus.cancel) {
+                                  status = FilterStatus.cancel;
+                                  _alignment = Alignment.centerRight;
+                                }
+                              });
+                            },
+                            child: Center(
+                              child: Text(filterStatus.name), // Fixed this line
+                            ),
+                          ),
+                        ),
                     ],
+                  ),
                 ),
-                )
-               ],
-            )
+                  AnimatedAlign(alignment:_alignment, duration: Duration(milliseconds: 200),
+                  child: Container(
+                    width: 100,
+                    height: 40,
+                    decoration: BoxDecoration(
+                      color: Config.primaryColor,
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    child: Center(
+                      child: Text(
+                        status.name,
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold
+                        ),
+                      ),
+                    ),
+                  ),
+                  ),
+
+              ],
+            ),
+            
           ],
         ),
       ),
