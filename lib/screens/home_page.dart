@@ -34,7 +34,7 @@ class _HomePageState extends State<HomePage> {
               SizedBox(
                 child: CircleAvatar(
                   radius: 30,
-                  backgroundImage: AssetImage('lib/assets/profile1.jpg'),
+                  backgroundImage: AssetImage('assets/images/profile1.jpg'),
                 ),
               )
             ],
