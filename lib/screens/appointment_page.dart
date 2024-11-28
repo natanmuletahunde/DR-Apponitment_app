@@ -142,7 +142,35 @@ class _AppointmentPageState extends State<AppointmentPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  
+                 Row(
+                  children: [
+                    CircleAvatar(
+                      backgroundImage: AssetImage(_schedule['doctor_profile']!),
+                    ),
+                    Config.spaceSmall,
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          _schedule['doctor_name']!,
+                          style:const TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.w700
+                          ) ,
+                        ),
+
+                        const SizedBox(height:5 ,),
+                            Text(
+                          _schedule['category']!,
+                          style:const TextStyle(
+                            color: Colors.grey,
+                            fontWeight: FontWeight.w700
+                          ) ,
+                        ),
+                      ],
+                    )
+                  ],
+                 )
                 ],
               ),)
              );
