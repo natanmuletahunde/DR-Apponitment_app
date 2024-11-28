@@ -95,7 +95,17 @@ class _HomePageState extends State<HomePage> {
                         FaIcon(
                           medCat[index]['icon'],
                           color: Colors.white,
-                        )
+                        ),
+                        const SizedBox(
+                          width: 20,
+                        ),
+                        Text(
+                          medCat[index]['category'],
+                          style: const TextStyle(
+                            fontSize: 16,
+                            color:Colors.white
+                          ),
+                        ),
                       ],
                     ),
                   ),
