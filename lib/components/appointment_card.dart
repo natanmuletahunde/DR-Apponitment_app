@@ -22,9 +22,30 @@ class _AppointmentCardState extends State<AppointmentCard> {
         child: Padding(
           padding: EdgeInsets.all(20),
           child: Column(children: <Widget>[
-             CircleAvatar(
-                  backgroundImage: AssetImage('assets/images/profile1.jpg'), 
+                  CircleAvatar(
+                  backgroundImage: AssetImage('assets/images/doctor1.jpg'), 
                 ),
+                SizedBox(width: 10,),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text('DR Richard Richarcolrd  Tan', style: TextStyle(
+                      color: Colors.white
+                    ),
+                    
+                    ),
+                    SizedBox(
+                      height: 2,
+                    ),
+                    Text(
+                      'Dental',
+                      style: TextStyle(
+                        color: Colors.black
+                      ),
+                    )
+                  ],
+                )
           ]),
         ),
       ),
