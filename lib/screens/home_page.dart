@@ -19,6 +19,26 @@ class _HomePageState extends State<HomePage> {
       Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
+        children:<Widget>[
+          Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children:  <Widget>[
+                Text(
+                  'Amanda',
+                  style: TextStyle(
+                    fontSize: 24,
+                 fontWeight: FontWeight.bold,
+                  ),
+                ),
+                SizedBox(
+                  child: CircleAvatar(
+                    radius:30,
+                    backgroundImage:AssetImage('assets/profile1.jpg'),
+                  ),
+                )
+              ], 
+          )
+        ],
       )),)
     );
   }
