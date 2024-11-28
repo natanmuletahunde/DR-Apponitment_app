@@ -11,35 +11,36 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body: Padding(padding:const EdgeInsets.symmetric(
+        body: Padding(
+      padding: const EdgeInsets.symmetric(
         horizontal: 15,
         vertical: 15,
       ),
-      child:SafeArea(child: 
-      Column(
+      child: SafeArea(
+          child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
-        children:<Widget>[
+        children: <Widget>[
           Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children:  <Widget>[
-                Text(
-                  'Amanda',
-                  style: TextStyle(
-                    fontSize: 24,
-                 fontWeight: FontWeight.bold,
-                  ),
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              Text(
+                'Amanda',
+                style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
                 ),
-                SizedBox(
-                  child: CircleAvatar(
-                    radius:30,
-                    backgroundImage:AssetImage('assets/profile1.jpg'),
-                  ),
-                )
-              ], 
+              ),
+              SizedBox(
+                child: CircleAvatar(
+                  radius: 30,
+                  backgroundImage: AssetImage('lib/assets/profile1.jpg'),
+                ),
+              )
+            ],
           )
         ],
-      )),)
-    );
+      )),
+    ));
   }
 }
