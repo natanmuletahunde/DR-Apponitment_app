@@ -125,8 +125,15 @@ class _HomePageState extends State<HomePage> {
             ),
           Config.spaceSmall,
            const AppointmentCard(),
-          // display appointment Card here
-          // lets create appointment card widget
+          Config.spaceSmall,
+           const Text(
+            'Top Doctor',
+            style: TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.bold,
+            )
+            ),
+            //List of Top Doctor
         ],
       )),
     ));

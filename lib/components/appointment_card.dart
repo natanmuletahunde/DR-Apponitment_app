@@ -73,6 +73,24 @@ class _AppointmentCardState extends State<AppointmentCard> {
                    
                   ),
                 ),
+                const SizedBox(
+                  width: 20,
+                ),
+                 Expanded(
+                  child: ElevatedButton(
+                     onPressed: () {},
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.blue,
+                    ),
+                    child:  const Text(
+                      'Completed',
+                      style: TextStyle(
+                        color: Colors.white,
+                      ),
+                    ),
+                   
+                  ),
+                ),
               ],
             )
           ]),
@@ -125,3 +143,5 @@ class ScheduleCard extends StatelessWidget {
     );
   }
 }
+
+// 
