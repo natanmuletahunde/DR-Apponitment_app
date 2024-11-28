@@ -1,4 +1,6 @@
+import 'package:drappointment/utils/config.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -8,6 +10,32 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  List<Map<String,dynamic>> medCat = [ // dynamic un this case means the value can be any type.
+     {
+      "icon":FontAwesomeIcons.userDoctor,
+      "category":"General",
+     },
+      {
+      "icon":FontAwesomeIcons.heartPulse,
+      "category":"Cardiology",
+     },
+      {
+      "icon":FontAwesomeIcons.lungs,
+      "category":"Respirations",
+     },
+     {
+      "icon":FontAwesomeIcons.hand,
+      "category":"Dermatology",
+     }, 
+     {
+      "icon":FontAwesomeIcons.personPregnant,
+      "category":"Gynecology",
+     }, 
+     {
+      "icon":FontAwesomeIcons.teeth,
+      "category":"Dental",
+     }, 
+  ];
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
@@ -38,7 +66,28 @@ class _HomePageState extends State<HomePage> {
                 ),
               )
             ],
+          ),
+          Config.spaceSmall,
+             // category listing
+             Text(
+                'Category',
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+               ),
+              ),
+      Config.spaceSmall,
+      SizedBox(
+       height: Config.heightSize * 0.05,
+       child: ListView(
+        scrollDirection: Axis.horizontal,
+        children:List<Widget>.generate(medCat.length, (index{
+          return Card(
+            
           )
+        })),
+       ),
+      )
         ],
       )),
     ));
