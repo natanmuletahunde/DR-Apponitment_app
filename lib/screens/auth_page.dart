@@ -129,7 +129,7 @@ class _AuthPageState extends State<AuthPage> {
                     ),
                   ),
                   const Padding(padding: EdgeInsets.only(
-                    right:3
+                    right:5
                   )),
                    const Text(
                     'Sign Up',
