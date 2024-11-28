@@ -25,8 +25,27 @@ class _DoctorCardState extends State<DoctorCard> {
            children: [
             SizedBox(
                width:Config.widthSize!*0.33,
-               child: Image.asset('assets/images/'),
-            )
+               child: Image.asset('assets/images/doctor2.jpg', fit: BoxFit.fill ,),
+            ),
+           const  Flexible(child: Padding(padding:
+             EdgeInsets.symmetric(
+              horizontal: 10,vertical: 20
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children:<Widget>[
+                Text(
+                  'Dr Richard Tan',
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight:FontWeight.bold,
+                  ),
+                )
+              ],
+            ),
+            
+            ),
+            ),
            ],
           ),
         ),
