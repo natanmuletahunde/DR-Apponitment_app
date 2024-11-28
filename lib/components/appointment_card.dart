@@ -91,6 +91,14 @@ class ScheduleCard extends StatelessWidget {
              Icon(Icons.access_alarm,
           color: Colors.white,
           size: 17),
+          const SizedBox(
+            width: 5,
+          ),
+          Flexible(child: Text('2:00 PM', style: TextStyle(
+            color: Colors.white,
+          ),
+          )
+          )
         ],
       ),
     );
