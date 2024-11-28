@@ -39,7 +39,29 @@ class _DoctorCardState extends State<DoctorCard> {
                   style: TextStyle(
                     fontSize: 18,
                     fontWeight:FontWeight.bold,
+                  )
                   ),
+                 Text(
+                  'Dental',
+                  style: TextStyle(
+                    fontSize: 14,
+                    fontWeight:FontWeight.bold,
+                  ),
+                  
+                ),
+                Spacer(),
+                Row(
+                   mainAxisAlignment: MainAxisAlignment.start,
+                   children:<Widget>[
+                    Icon(Icons.star_border,color: Colors.yellow, size: 16,),
+                    Spacer(flex: 1),
+                    Text( '4.5'),
+                    Spacer(flex: 1,),
+                    Text('Reviews'),
+                    Spacer(flex: 1,),
+                    Text('20'),
+                     Spacer(flex: 7,)
+                   ],
                 )
               ],
             ),
@@ -49,6 +71,7 @@ class _DoctorCardState extends State<DoctorCard> {
            ],
           ),
         ),
+        onTap: (){}// redirect to doctor details 
       ),
     );
   }
