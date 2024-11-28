@@ -8,8 +8,15 @@ class MainLayout extends StatefulWidget {
 }
 
 class _MainLayoutState extends State<MainLayout> {
+  // variables decalration
+  int currentPage =0;
+  final PageController _page = PageController();
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      body: PageView(
+        controller: _page,
+      ),
+    );
   }
 }
