@@ -113,6 +113,16 @@ class _HomePageState extends State<HomePage> {
               }),
             ),
           ),
+          Config.spaceSmall,
+          const Text(
+            'Appointment Today',
+            style: TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.bold,
+            )),
+          Config.spaceSmall,
+          // display appointment Card here
+          // lets create appointment card widget
         ],
       )),
     ));
