@@ -76,7 +76,7 @@ class _AuthPageState extends State<AuthPage> {
                         },
                         style: ElevatedButton.styleFrom(
                           backgroundColor:
-                              Config.primaryColor,// Button background color
+                              Config.primaryColor, // Button background color
                           padding: const EdgeInsets.symmetric(
                               vertical: 12, horizontal: 16),
                         ),
@@ -117,8 +117,30 @@ class _AuthPageState extends State<AuthPage> {
                   ),
                 ],
               ),
-
-              Config.spaceSmall
+              Config.spaceSmall,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    AppText.enText['signUp_text']!,
+                    style: TextStyle(
+                      fontWeight: FontWeight.normal,
+                      color: Colors.grey.shade500,
+                    ),
+                  ),
+                  const Padding(padding: EdgeInsets.only(
+                    right:3
+                  )),
+                   const Text(
+                    'Sign Up',
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black
+                    ),
+                  )
+                ],
+              )
             ],
           ),
         ),
