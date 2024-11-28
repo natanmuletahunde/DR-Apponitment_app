@@ -122,7 +122,35 @@ class _AppointmentPageState extends State<AppointmentPage> {
 
               ],
             ),
-            
+            Config.spaceSmall,
+            Expanded(child:ListView.builder( itemCount: filteredSchedules.length,itemBuilder:((context,index)
+            {
+             var _schedule = filteredSchedules[index];
+             bool isLastElement =filteredSchedules.length + 1==index;
+
+             return Card(
+              shape: RoundedRectangleBorder(
+                side: const BorderSide(
+                  color: Colors.grey,
+                ),
+                borderRadius: BorderRadius.circular(20),
+
+              ),
+              margin: !isLastElement? const EdgeInsets.only(bottom: 20)
+              :EdgeInsets.zero,
+              child:Padding(padding: const EdgeInsets.all(15),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  
+                ],
+              ),)
+             );
+            }
+            )
+             )
+             )
+
           ],
         ),
       ),
