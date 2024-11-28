@@ -17,13 +17,13 @@ class _AppointmentCardState extends State<AppointmentCard> {
         color: Config.primaryColor,
         borderRadius: BorderRadius.circular(10),
       ),
-      child: const Material(
+      child: Material(
         color: Colors.transparent,
         child: Padding(
-          padding: EdgeInsets.all(20),
+          padding: const EdgeInsets.all(20),
           child: Column(children: <Widget>[
             /// insert the Row here
-            Row(
+            const Row(
               children: [
                 CircleAvatar(
                   backgroundImage: AssetImage('assets/images/doctor1.jpg'),
@@ -52,6 +52,29 @@ class _AppointmentCardState extends State<AppointmentCard> {
             ),
 
             Config.spaceSmall,
+            const ScheduleCard(),
+            Config.spaceSmall,
+            // action buttons,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Expanded(
+                  child: ElevatedButton(
+                     onPressed: () {},
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.red,
+                    ),
+                    child:  const Text(
+                      'Cancel',
+                      style: TextStyle(
+                        color: Colors.white,
+                      ),
+                    ),
+                   
+                  ),
+                ),
+              ],
+            )
           ]),
         ),
       ),
@@ -67,41 +90,38 @@ class ScheduleCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.grey,borderRadius: BorderRadius.circular(10),
+        color: Colors.grey,
+        borderRadius: BorderRadius.circular(10),
       ),
       width: double.infinity,
       padding: const EdgeInsets.all(20),
       child: const Row(
         crossAxisAlignment: CrossAxisAlignment.center,
-        children:<Widget>[
-           Icon(Icons.calendar_today,
-          color: Colors.white,
-          size: 15),
-
-           SizedBox(width: 5,),
-          Text('Thursday ,11/28/2024',
-          
-          style: TextStyle(
-            color: Colors.white
-          )
-           ,),
-            SizedBox(
-            width: 20,
-           ),
-             Icon(Icons.access_alarm,
-          color: Colors.white,
-          size: 17),
-          const SizedBox(
+        children: <Widget>[
+          Icon(Icons.calendar_today, color: Colors.white, size: 15),
+          SizedBox(
             width: 5,
           ),
-          Flexible(child: Text('2:00 PM', style: TextStyle(
-            color: Colors.white,
+          Text(
+            'Thursday ,11/28/2024',
+            style: TextStyle(color: Colors.white),
           ),
-          )
-          )
+          SizedBox(
+            width: 20,
+          ),
+          Icon(Icons.access_alarm, color: Colors.white, size: 17),
+          SizedBox(
+            width: 5,
+          ),
+          Flexible(
+              child: Text(
+            '2:00 PM',
+            style: TextStyle(
+              color: Colors.white,
+            ),
+          ))
         ],
       ),
     );
-           
   }
 }
