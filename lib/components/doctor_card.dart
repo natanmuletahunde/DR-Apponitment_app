@@ -1,3 +1,4 @@
+import 'package:drappointment/utils/config.dart';
 import 'package:flutter/material.dart';
 
 class DoctorCard extends StatefulWidget {
@@ -10,8 +11,9 @@ class DoctorCard extends StatefulWidget {
 class _DoctorCardState extends State<DoctorCard> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.symmetric(
+    Config.init(context);
+    return  Container(
+      padding: const EdgeInsets.symmetric(
         horizontal: 10, vertical: 10
       ),
       height: 150,
@@ -20,7 +22,12 @@ class _DoctorCardState extends State<DoctorCard> {
           elevation: 5,
           color: Colors.white,
           child: Row(
-            
+           children: [
+            SizedBox(
+               width:Config.widthSize!*0.33,
+               child: Image.asset('assets/images/'),
+            )
+           ],
           ),
         ),
       ),
