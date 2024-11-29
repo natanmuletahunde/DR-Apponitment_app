@@ -17,25 +17,25 @@ class _AppointmentPageState extends State<AppointmentPage> {
   List<Map<String, String>> schedules = [
     {
       "doctor_name": "Richard Tan",
-      "doctor_profile": "assets/doctor2.jpg",
+      "doctor_profile": "assets/images/doctor2.jpg",
       "category": "Dental",
       "status": "upcoming",
     },
     {
       "doctor_name": "Max Lim",
-      "doctor_profile": "assets/doctor3.jpg",
+      "doctor_profile": "assets/images/doctor3.jpg",
       "category": "Cardiology",
       "status": "complete",
     },
     {
       "doctor_name": "Jane Wong",
-      "doctor_profile": "assets/doctor4.jpg",
+      "doctor_profile": "assets/images/doctor5.jpg",
       "category": "Respiration",
       "status": "complete",
     },
     {
       "doctor_name": "Jenny Song",
-      "doctor_profile": "assets/doctor5.jpg",
+      "doctor_profile": "assets/images/doctor4.jpg",
       "category": "General",
       "status": "cancel",
     },
@@ -164,13 +164,18 @@ class _AppointmentPageState extends State<AppointmentPage> {
                           _schedule['category']!,
                           style:const TextStyle(
                             color: Colors.grey,
+                            fontSize: 12,
                             fontWeight: FontWeight.w700
                           ) ,
                         ),
                       ],
                     )
                   ],
-                 )
+                 ),
+                 const SizedBox(
+                  height:15,
+                 ),
+                 // schedule Card 
                 ],
               ),)
              );
@@ -181,6 +186,49 @@ class _AppointmentPageState extends State<AppointmentPage> {
 
           ],
         ),
+      ),
+    );
+  }
+}
+
+class ScheduleCard extends StatelessWidget {
+  const ScheduleCard({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.grey,
+        borderRadius: BorderRadius.circular(10),
+      ),
+      width: double.infinity,
+      padding: const EdgeInsets.all(20),
+      child: const Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          Icon(Icons.calendar_today, color: Colors.white, size: 15),
+          SizedBox(
+            width: 5,
+          ),
+          Text(
+            'Thursday ,11/28/2024',
+            style: TextStyle(color: Colors.white),
+          ),
+          SizedBox(
+            width: 20,
+          ),
+          Icon(Icons.access_alarm, color: Colors.white, size: 17),
+          SizedBox(
+            width: 5,
+          ),
+          Flexible(
+              child: Text(
+            '2:00 PM',
+            style: TextStyle(
+              color: Colors.white,
+            ),
+          ))
+        ],
       ),
     );
   }
