@@ -1,0 +1,59 @@
+import 'package:drappointment/utils/config.dart';
+import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
+class CustomAppbar extends StatefulWidget {
+  const CustomAppbar({super.key});
+
+  @override
+  Size get PreferredSize => const Size.fromHeight(60);
+
+  final String? appTile;
+  final String? route;
+  final FaIcon? icon;
+  final List<Widget>? action;
+  State<CustomAppbar> createState() => _CustomAppbarState();
+}
+
+class _CustomAppbarState extends State<CustomAppbar> {
+  @override
+  Widget build(BuildContext context) {
+    return AppBar(
+        automaticallyImplyLeading: true,
+        backgroundColor: Colors.white,
+        elevation: 0,
+        title: Text(
+          widget.appTile!,
+          style: const TextStyle(
+            fontSize: 20,
+            color: Colors.black,
+          ),
+        ),
+        leading: widget.icon != null
+            ? Container(
+                margin:
+                    const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: Config.primaryColor,
+                ),
+                child: IconButton(
+                  onPressed: () {
+                    if (widget.route != null) {
+                      // Check if the route is not null
+                      Navigator.of(context)
+                          .pushNamed(widget.route!); // Navigate to the route
+                    }
+                    else{
+                      Navigator.of(context).pop();
+                    }
+                  },
+                  icon: widget.icon!, // Assert icon is not null
+                  iconSize: 16,
+                  color: Colors.white,
+                ))
+            : null,
+            actions: widget.action?? null,
+            );
+  }
+}

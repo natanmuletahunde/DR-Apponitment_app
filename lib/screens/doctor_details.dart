@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import  'package:font_awesome_flutter/font_awesome_flutter.dart';
+import '../components///custom_appbar.dart';
 class DoctorDetails extends StatefulWidget {
   const DoctorDetails({super.key});
   @override
