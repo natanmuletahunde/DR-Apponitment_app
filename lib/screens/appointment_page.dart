@@ -177,6 +177,7 @@ class _AppointmentPageState extends State<AppointmentPage> {
                  ),
                  // schedule Card 
                  const ScheduleCard(),
+                 
                 ],
               ),)
              );
@@ -206,19 +207,20 @@ class ScheduleCard extends StatelessWidget {
       padding: const EdgeInsets.all(20),
       child: const Row(
         crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
-          Icon(Icons.calendar_today, color: Colors.white, size: 15),
+          Icon(Icons.calendar_today, color: Config.primaryColor, size: 15),
           SizedBox(
             width: 5,
           ),
           Text(
             'Thursday ,11/28/2024',
-            style: TextStyle(color: Colors.white),
+            style: TextStyle(color: Config.primaryColor),
           ),
           SizedBox(
             width: 20,
           ),
-          Icon(Icons.access_alarm, color: Colors.white, size: 17),
+          Icon(Icons.access_alarm, color: Config.primaryColor, size: 17),
           SizedBox(
             width: 5,
           ),
@@ -226,7 +228,7 @@ class ScheduleCard extends StatelessWidget {
               child: Text(
             '2:00 PM',
             style: TextStyle(
-              color: Colors.white,
+              color: Config.primaryColor,
             ),
           ))
         ],
