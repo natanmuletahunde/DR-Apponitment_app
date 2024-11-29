@@ -176,6 +176,7 @@ class _AppointmentPageState extends State<AppointmentPage> {
                   height:15,
                  ),
                  // schedule Card 
+                 const ScheduleCard(),
                 ],
               ),)
              );
@@ -198,7 +199,7 @@ class ScheduleCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.grey,
+        color: Colors.grey.shade100,
         borderRadius: BorderRadius.circular(10),
       ),
       width: double.infinity,
