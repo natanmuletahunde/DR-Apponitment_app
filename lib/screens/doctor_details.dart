@@ -110,8 +110,37 @@ class DetailBody extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children:<Widget>[
           Config.spaceSmall,
+          // doctor exp,patient and rating
         ],
       )
+    );
+  }
+}
+
+class DoctorInfo extends StatelessWidget {
+  const DoctorInfo({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: <Widget>[
+        Expanded(child: Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(15),
+            color: Config.primaryColor
+          ),
+          padding: const EdgeInsets.symmetric(
+            horizontal: 30,
+            vertical: 15
+          ),
+          child:  const Column(
+            children: <Widget>[
+                Text('patient')
+            ],
+          ),
+        )
+        )
+      ],
     );
   }
 }
