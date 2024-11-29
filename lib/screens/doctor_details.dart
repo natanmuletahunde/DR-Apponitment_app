@@ -80,7 +80,17 @@ class AboutDoctor extends StatelessWidget {
               softWrap: true,
               textAlign: TextAlign.center,
             ),
-          )
+          ),
+          Config.spaceSmall,
+          const  Text(
+               'Sarawak General Hospital ',
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 15,
+              ),
+              softWrap: true,
+              textAlign: TextAlign.center,
+            ),
         ],
       ),
     );
