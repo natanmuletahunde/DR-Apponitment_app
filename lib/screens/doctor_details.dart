@@ -53,6 +53,21 @@ class AboutDoctor extends StatelessWidget {
     Config.init(context);
     return Container(
       width: double.infinity,
+      child: Column(
+        children:<Widget>[
+          const CircleAvatar(
+            radius: 65.0,
+            backgroundImage: AssetImage('assets/images/doctor2.jpg'),
+            backgroundColor: Colors.white,
+          ),
+          Config.spaceMedium,
+          const Text('Dr Richard Tan', style: TextStyle(
+            color: Colors.black,
+            fontSize: 24,
+            fontWeight: FontWeight.bold,
+          ),)
+        ],
+      ),
     );
   }
 }
