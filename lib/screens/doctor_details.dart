@@ -38,7 +38,7 @@ class _DoctorDetailsState extends State<DoctorDetails> {
       ),
       body: const SafeArea(child: Column(
         children: <Widget>[
-          //build doctor avator and intro here
+        AboutDoctor()
         ],
       )),
         
