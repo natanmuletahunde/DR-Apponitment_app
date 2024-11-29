@@ -38,20 +38,20 @@ class _DoctorDetailsState extends State<DoctorDetails> {
           ],
         ),
       ),
-      body: const SafeArea(
+      body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
             children:  <Widget>[
-            AboutDoctor(),
-            DetailBody(),
-            Spacer(),
+            const AboutDoctor(),
+            const DetailBody(),
+            const Spacer(),
             Padding(padding: 
-             const EdgeInsets.all(20),
+              const EdgeInsets.all(20),
              child: Button(title: 'Book', 
              width:double.infinity,
               onPressed:() {},
-              disable: false
-
+              disable: false,
+              
               ),
             )
             ],
