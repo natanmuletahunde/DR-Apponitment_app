@@ -29,11 +29,17 @@ class _DoctorDetailsState extends State<DoctorDetails> {
               });
             }, 
             icon: 
-            FaIcon(isFav ? Icons.favorite_border:Icons.favorite_outline,
+            FaIcon(isFav ? Icons.favorite_rounded:Icons.favorite_outline,
             color: Colors.red,))
           ],
         ),
+      
       ),
+      body: const SafeArea(child: Column(
+        children: <Widget>[
+          //build doctor avator and intro here
+        ],
+      )),
         
     );
   }
