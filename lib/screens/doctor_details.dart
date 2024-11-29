@@ -23,7 +23,12 @@ class _DoctorDetailsState extends State<DoctorDetails> {
           appTitle: 'Doctor Details', // Pass the correct app title
           icon: const FaIcon(Icons.arrow_back_ios),
           action: [
-            IconButton(onPressed: () {}, icon: 
+            IconButton(onPressed: () {
+              setState(() {
+                isFav = !isFav;
+              });
+            }, 
+            icon: 
             FaIcon(isFav ? Icons.favorite_border:Icons.favorite_outline,
             color: Colors.red,))
           ],
