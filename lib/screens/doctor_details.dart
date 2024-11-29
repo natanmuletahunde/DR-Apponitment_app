@@ -38,9 +38,12 @@ class _DoctorDetailsState extends State<DoctorDetails> {
         ),
       ),
       body: const SafeArea(
+        child: SingleChildScrollView(
           child: Column(
-        children: <Widget>[AboutDoctor()],
-      )),
+            children: <Widget>[AboutDoctor(), DetailBody()],
+          ),
+        ),
+      ),
     );
   }
 }
@@ -82,15 +85,15 @@ class AboutDoctor extends StatelessWidget {
             ),
           ),
           Config.spaceSmall,
-          const  Text(
-               'Sarawak General Hospital ',
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: 15,
-              ),
-              softWrap: true,
-              textAlign: TextAlign.center,
+          const Text(
+            'Sarawak General Hospital ',
+            style: TextStyle(
+              color: Colors.black,
+              fontSize: 15,
             ),
+            softWrap: true,
+            textAlign: TextAlign.center,
+          ),
         ],
       ),
     );
@@ -102,18 +105,25 @@ class DetailBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Config.init(context); 
+    Config.init(context);
     return Container(
-      padding: const EdgeInsets.all(20),
-      margin: const EdgeInsets.only(bottom: 30),
-      child:  const Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children:<Widget>[
-          Config.spaceSmall,
-          DoctorInfo()
-        ],
-      )
-    );
+        padding: const EdgeInsets.all(20),
+        margin: const EdgeInsets.only(bottom: 30),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: <Widget>[
+            Config.spaceSmall,
+            const DoctorInfo(),
+            Config.spaceBig,
+            const Text(
+              'About Doctor',
+              style: TextStyle(fontWeight: FontWeight.w600, fontSize: 18),
+            ),
+            Config.spaceSmall,
+            const Text(
+                'Dr  Richard Tan is an experience Dental at Sarawak. He is graduated since 2008, and completed his training at Sungai Buloh General Hospital.')
+          ],
+        ));
   }
 }
 
@@ -122,13 +132,26 @@ class DoctorInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const  Row(
+    return const Row(
       children: <Widget>[
-        InfoCard(label: 'Patients', value: '109',),
-        SizedBox( width: 15,),
-         InfoCard(label: 'Experiences', value: '10 Years',),
-        SizedBox( width: 15,),
-          InfoCard(label: 'Rating', value: '4.6',)
+        InfoCard(
+          label: 'Patients',
+          value: '109',
+        ),
+        SizedBox(
+          width: 15,
+        ),
+        InfoCard(
+          label: 'Experiences',
+          value: '10 Years',
+        ),
+        SizedBox(
+          width: 15,
+        ),
+        InfoCard(
+          label: 'Rating',
+          value: '4.6',
+        )
       ],
     );
   }
@@ -136,43 +159,31 @@ class DoctorInfo extends StatelessWidget {
 
 class InfoCard extends StatelessWidget {
   const InfoCard({super.key, required this.label, required this.value});
- final  String label;
- final  String value;
+  final String label;
+  final String value;
 
   @override
   Widget build(BuildContext context) {
-    return 
-    Expanded(child: Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(15),
-            color: Config.primaryColor
+    return Expanded(
+        child: Container(
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(15), color: Config.primaryColor),
+      padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
+      child: Column(
+        children: <Widget>[
+          Text(
+            label,
+            style: const TextStyle(
+                color: Colors.black, fontSize: 12, fontWeight: FontWeight.w600),
           ),
-          padding: const EdgeInsets.symmetric(
-            horizontal: 30,
-            vertical: 15
+          const SizedBox(height: 10),
+          Text(
+            value,
+            style: const TextStyle(
+                color: Colors.white, fontSize: 15, fontWeight: FontWeight.w800),
           ),
-          child: Column(
-            children:<Widget>[
-                Text(
-                label,
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 12,
-                  fontWeight: FontWeight.w600
-                ),
-                ),
-               const  SizedBox(height: 10),
-                  Text(
-                    value, 
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 15,
-                  fontWeight: FontWeight.w800
-                ),
-                ),
-            ],
-          ),
-        )
-        );
+        ],
+      ),
+    ));
   }
 }
