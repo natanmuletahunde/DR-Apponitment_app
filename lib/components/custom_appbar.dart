@@ -2,8 +2,8 @@ import 'package:drappointment/utils/config.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class CustomAppbar extends StatefulWidget {
-  const CustomAppbar({super.key});
+class CustomAppBar extends StatefulWidget {
+  const CustomAppBar({super.key, required String appTitle, this.appTile, this.route, this.icon, this.action});// all final varibles must be applied first
 
   @override
   Size get PreferredSize => const Size.fromHeight(60);
@@ -12,10 +12,10 @@ class CustomAppbar extends StatefulWidget {
   final String? route;
   final FaIcon? icon;
   final List<Widget>? action;
-  State<CustomAppbar> createState() => _CustomAppbarState();
+  State<CustomAppBar> createState() => _CustomAppBarState();
 }
 
-class _CustomAppbarState extends State<CustomAppbar> {
+class _CustomAppBarState extends State<CustomAppBar> {
   @override
   Widget build(BuildContext context) {
     return AppBar(
