@@ -110,7 +110,7 @@ class DetailBody extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children:<Widget>[
           Config.spaceSmall,
-          // doctor exp,patient and rating
+          DoctorInfo()
         ],
       )
     );
@@ -122,9 +122,23 @@ class DoctorInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
+    return const  Row(
       children: <Widget>[
-        Expanded(child: Container(
+        InfoCard(label: 'Patients', value: '109',)
+      ],
+    );
+  }
+}
+
+class InfoCard extends StatelessWidget {
+  const InfoCard({super.key, required this.label, required this.value});
+ final  String label;
+ final  String value;
+
+  @override
+  Widget build(BuildContext context) {
+    return 
+    Expanded(child: Container(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),
             color: Config.primaryColor
@@ -133,19 +147,28 @@ class DoctorInfo extends StatelessWidget {
             horizontal: 30,
             vertical: 15
           ),
-          child:  const Column(
-            children: <Widget>[
-                Text('patient', 
+          child: Column(
+            children:<Widget>[
+                Text(
+                label,
                 style: TextStyle(
                   color: Colors.black,
                   fontSize: 12,
                   fontWeight: FontWeight.w600
-                ),)
+                ),
+                ),
+               const  SizedBox(height: 10),
+                  Text(
+                    value, 
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 15,
+                  fontWeight: FontWeight.w800
+                ),
+                ),
             ],
           ),
         )
-        )
-      ],
-    );
+        );
   }
 }
