@@ -19,7 +19,7 @@ class _AuthPageState extends State<AuthPage> {
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
         child: SafeArea(
-          child: SingleChildScrollView(  // Wrap the Column in SingleChildScrollView
+          child: SingleChildScrollView(  // Wrap the Column in SingleChildScrollView to fix overflow
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
