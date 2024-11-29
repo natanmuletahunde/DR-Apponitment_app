@@ -24,24 +24,23 @@ class _DoctorDetailsState extends State<DoctorDetails> {
           appTitle: 'Doctor Details', // Pass the correct app title
           icon: const FaIcon(Icons.arrow_back_ios),
           action: [
-            IconButton(onPressed: () {
-              setState(() {
-                isFav = !isFav;
-              });
-            }, 
-            icon: 
-            FaIcon(isFav ? Icons.favorite_rounded:Icons.favorite_outline,
-            color: Colors.red,))
+            IconButton(
+                onPressed: () {
+                  setState(() {
+                    isFav = !isFav;
+                  });
+                },
+                icon: FaIcon(
+                  isFav ? Icons.favorite_rounded : Icons.favorite_outline,
+                  color: Colors.red,
+                ))
           ],
         ),
-      
       ),
-      body: const SafeArea(child: Column(
-        children: <Widget>[
-        AboutDoctor()
-        ],
+      body: const SafeArea(
+          child: Column(
+        children: <Widget>[AboutDoctor()],
       )),
-        
     );
   }
 }
@@ -54,18 +53,34 @@ class AboutDoctor extends StatelessWidget {
     return Container(
       width: double.infinity,
       child: Column(
-        children:<Widget>[
+        children: <Widget>[
           const CircleAvatar(
             radius: 65.0,
             backgroundImage: AssetImage('assets/images/doctor2.jpg'),
             backgroundColor: Colors.white,
           ),
           Config.spaceMedium,
-          const Text('Dr Richard Tan', style: TextStyle(
-            color: Colors.black,
-            fontSize: 24,
-            fontWeight: FontWeight.bold,
-          ),)
+          const Text(
+            'Dr Richard Tan',
+            style: TextStyle(
+              color: Colors.black,
+              fontSize: 24,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          Config.spaceSmall,
+          SizedBox(
+            width: Config.screenWidth! * 0.75,
+            child: const Text(
+              'MBBS (International Medical University Maylaysia) , MRCP (Royal College of Physician,United Kingdom)',
+              style: TextStyle(
+                color: Colors.grey,
+                fontSize: 15,
+              ),
+              softWrap: true,
+              textAlign: TextAlign.center,
+            ),
+          )
         ],
       ),
     );
