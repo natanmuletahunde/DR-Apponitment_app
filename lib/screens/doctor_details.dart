@@ -15,17 +15,21 @@ class _DoctorDetailsState extends State<DoctorDetails> {
 
   @override
   Widget build(BuildContext context) {
-    return const  Scaffold(
+    return Scaffold(
       appBar: PreferredSize(
-        preferredSize:  Size.fromHeight(60),
+        preferredSize: const Size.fromHeight(60),
         child: CustomAppBar(
-          appTitle: 'Doctor Details',
-          icon:  FaIcon(Icons.arrow_back_ios), appTile: '',
+          appTile: 'Doctor Details', // Correctly set the title here
+          appTitle: 'Doctor Details', // Pass the correct app title
+          icon: const FaIcon(Icons.arrow_back_ios),
+          action: [
+            IconButton(onPressed: () {}, icon: 
+            FaIcon(isFav ? Icons.favorite_border:Icons.favorite_outline,
+            color: Colors.red,))
+          ],
         ),
       ),
-      body:  Center(
-        child: Text('Doctor Details Page'),
-      ),
+        
     );
   }
 }
