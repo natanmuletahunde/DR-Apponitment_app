@@ -153,7 +153,9 @@ class _AppointmentPageState extends State<AppointmentPage> {
                                       backgroundImage: AssetImage(
                                           _schedule['doctor_profile']!),
                                     ),
-                                    Config.spaceSmall,
+                                   const SizedBox(
+                                    width: 10,
+                                   ),
                                     Column(
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
@@ -201,7 +203,21 @@ class _AppointmentPageState extends State<AppointmentPage> {
                                         ),
                                       ),
                                     ),
-                                    SizedBox(width: 20),
+                                   const  SizedBox(width: 20),
+                                    Expanded(
+                                      child: OutlinedButton(
+                                        style: OutlinedButton.styleFrom(
+                                          backgroundColor: Config.primaryColor
+                                        ),
+                                        onPressed: () {},
+                                        child: const Text(
+                                          'Reschedule',
+                                           style: TextStyle(
+                                            color: Colors.white,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
                                   ],
                                 )
                               ],
