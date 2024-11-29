@@ -121,7 +121,12 @@ class DetailBody extends StatelessWidget {
             ),
             Config.spaceSmall,
             const Text(
-                'Dr  Richard Tan is an experience Dental at Sarawak. He is graduated since 2008, and completed his training at Sungai Buloh General Hospital.')
+                'Dr  Richard Tan is an experience Dental at Sarawak. He is graduated since 2008, and completed his training at Sungai Buloh General Hospital.' , 
+                style: TextStyle(
+                  fontWeight: FontWeight.w500,height: 1.5,
+                ),
+                softWrap: true,
+                textAlign: TextAlign.justify,)
           ],
         ));
   }
@@ -170,17 +175,21 @@ class InfoCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(15), color: Config.primaryColor),
       padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,  // Center text vertically
+        crossAxisAlignment: CrossAxisAlignment.center, // Center text horizontally
         children: <Widget>[
           Text(
             label,
             style: const TextStyle(
                 color: Colors.black, fontSize: 12, fontWeight: FontWeight.w600),
+            textAlign: TextAlign.center,  // Align label text in center
           ),
           const SizedBox(height: 10),
           Text(
             value,
             style: const TextStyle(
                 color: Colors.white, fontSize: 15, fontWeight: FontWeight.w800),
+            textAlign: TextAlign.center,  // Align value text in center
           ),
         ],
       ),
