@@ -96,3 +96,22 @@ class AboutDoctor extends StatelessWidget {
     );
   }
 }
+
+class DetailBody extends StatelessWidget {
+  const DetailBody({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    Config.init(context); 
+    return Container(
+      padding: const EdgeInsets.all(20),
+      margin: const EdgeInsets.only(bottom: 30),
+      child:  const Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children:<Widget>[
+          Config.spaceSmall,
+        ],
+      )
+    );
+  }
+}
