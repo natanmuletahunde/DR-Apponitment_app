@@ -46,9 +46,9 @@ class _DoctorDetailsState extends State<DoctorDetails> {
             const DetailBody(),
             const Spacer(),
             Padding(padding: 
-              const EdgeInsets.all(20),
-             child: Button(title: 'Book', 
-             width:double.infinity,
+            const EdgeInsets.all(20),
+              child: Button(title:'Book Appointments', 
+              width:double.infinity,
               onPressed:() {},
               disable: false,
               
