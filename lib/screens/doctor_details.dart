@@ -1,3 +1,4 @@
+import 'package:drappointment/components/button.dart';
 import 'package:drappointment/utils/config.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -40,14 +41,26 @@ class _DoctorDetailsState extends State<DoctorDetails> {
       body: const SafeArea(
         child: SingleChildScrollView(
           child: Column(
-            children: <Widget>[AboutDoctor(), DetailBody()],
+            children:  <Widget>[
+            AboutDoctor(),
+            DetailBody(),
+            Spacer(),
+            Padding(padding: 
+             const EdgeInsets.all(20),
+             child: Button(title: 'Book', 
+             width:double.infinity,
+              onPressed:() {},
+              disable: false
+
+              ),
+            )
+            ],
           ),
         ),
       ),
     );
   }
 }
-
 class AboutDoctor extends StatelessWidget {
   const AboutDoctor({super.key});
   @override
@@ -131,7 +144,6 @@ class DetailBody extends StatelessWidget {
         ));
   }
 }
-
 class DoctorInfo extends StatelessWidget {
   const DoctorInfo({super.key});
 
