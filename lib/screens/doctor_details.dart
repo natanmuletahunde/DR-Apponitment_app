@@ -135,7 +135,12 @@ class DoctorInfo extends StatelessWidget {
           ),
           child:  const Column(
             children: <Widget>[
-                Text('patient')
+                Text('patient', 
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 12,
+                  fontWeight: FontWeight.w600
+                ),)
             ],
           ),
         )
