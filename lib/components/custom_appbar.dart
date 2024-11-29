@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class CustomAppBar extends StatefulWidget {
-  const CustomAppBar({super.key, required String appTitle, this.appTile, this.route, this.icon, this.action});// all final varibles must be applied first
+  const CustomAppBar({super.key, required String appTitle, this.appTile, this.route, this.icon, this.action});// all final varibles must be app
 
   @override
   Size get PreferredSize => const Size.fromHeight(60);

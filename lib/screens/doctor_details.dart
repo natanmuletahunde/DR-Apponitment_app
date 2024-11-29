@@ -14,16 +14,16 @@ class _DoctorDetailsState extends State<DoctorDetails> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: CustomAppBar(
-        appTitle: 'Doctor Details',
-        icon: const FaIcon(Icons.arrow_back_ios), // Corrected the icon reference
-      ),
-      body: Center(
-        child: Text(
-          'Doctor Details Content',
-          style: Theme.of(context).textTheme.headline6,
+    return const  Scaffold(
+      appBar: PreferredSize(
+        preferredSize:  Size.fromHeight(60),
+        child: CustomAppBar(
+          appTitle: 'Doctor Details',
+          icon:  FaIcon(Icons.arrow_back_ios),
         ),
+      ),
+      body:  Center(
+        child: Text('Doctor Details Page'),
       ),
     );
   }
