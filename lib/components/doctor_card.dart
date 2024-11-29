@@ -68,7 +68,7 @@ class DoctorCard extends StatelessWidget {
           ),
         ),
         onTap: (){
-          Navigator.of(context).pushNamed('');
+          Navigator.of(context).pushNamed(route);
         } 
       ),
     );

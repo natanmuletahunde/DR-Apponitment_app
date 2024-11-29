@@ -141,7 +141,7 @@ class _HomePageState extends State<HomePage> {
                 children: 
                   List.generate(10, (index){
                   return const  DoctorCard(
-                        route:'doc',
+                        route:'doc_details',
                   );
                   }
                   )
