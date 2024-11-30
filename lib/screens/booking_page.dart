@@ -32,6 +32,17 @@ class _BookingPageState extends State<BookingPage> {
           
         ),
       ),
+    body: CustomScrollView(
+        slivers:<Widget>[
+          SliverToBoxAdapter(
+            child: Column(
+              children:<Widget>[
+                
+              ],
+            ),
+          )
+        ]
+    ),
     
     );
   }
