@@ -123,10 +123,13 @@ class _BookingPageState extends State<BookingPage> {
               child: Button(
                 title: 'Make Appointment',
                 width: double.infinity,
-                onPressed: () {},
+                onPressed: () {
+                 Navigator.of(context).pushNamed('success_booking');
+                },
                 disable: _timeSelected && _dateSelected ? false : true,
                 // Set background color here
               ),
+
             ),
           )
         ],
