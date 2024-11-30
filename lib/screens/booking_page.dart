@@ -14,6 +14,7 @@ class BookingPage extends StatefulWidget {
 class _BookingPageState extends State<BookingPage> {
   CalendarFormat _format = CalendarFormat.month;
   DateTime _focusDay = DateTime.now();
+  DateTime _currentDay = DateTime.now(); // Declare _currentDay here
   int? _currentIndex;
   bool _isWeekend = false;
   bool _dateSelected = false;
@@ -24,26 +25,64 @@ class _BookingPageState extends State<BookingPage> {
     Config.init(context);
     return const Scaffold(
       appBar: PreferredSize(
-        preferredSize:  Size.fromHeight(kToolbarHeight),
-        child:  CustomAppBar(
+        preferredSize: Size.fromHeight(kToolbarHeight),
+        child: CustomAppBar(
           appTitle: 'Appointments',
           appTile: 'Appointments',
           icon: FaIcon(Icons.arrow_back_ios),
-          
         ),
       ),
-    body: CustomScrollView(
-        slivers:<Widget>[
+      body: CustomScrollView(
+        slivers: <Widget>[
           SliverToBoxAdapter(
             child: Column(
-              children:<Widget>[
-                
-              ],
+              children: <Widget>[],
             ),
           )
-        ]
-    ),
-    
+        ],
+      ),
+    );
+  }
+
+  // Table calendar widget
+  Widget _tableCalender() {
+    return TableCalendar(
+      focusedDay: _focusDay,
+      firstDay: DateTime.now(),
+      lastDay: DateTime(2023, 12, 31),
+      calendarFormat: _format,
+      currentDay: _currentDay, // Use _currentDay here
+      rowHeight: 48,
+      calendarStyle: const CalendarStyle(
+        todayDecoration: BoxDecoration(
+          color: Config.primaryColor,
+          shape: BoxShape.circle,
+        ),
+      ),
+      availableCalendarFormats: const {
+        CalendarFormat.month: 'Month',
+      },
+      onFormatChanged: (format) {
+        setState(() {
+          _format = format;
+        });
+      },
+      onDaySelected: (selectedDay, focusedDay) {
+        setState(() {
+          _currentDay = selectedDay; // Update _currentDay here
+          _focusDay = focusedDay;
+          _dateSelected = true;
+          // check is the weekend is selected
+          if(selectedDay.weekday ==6 || selectedDay.weekday ==7){
+            _isWeekend = true;
+            _timeSelected = false;
+            _currentIndex = null;
+          }
+          else{
+            _isWeekend = false;
+          }
+        });
+      },
     );
   }
 }
