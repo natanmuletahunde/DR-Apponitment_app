@@ -1,3 +1,4 @@
+import 'package:drappointment/components/button.dart';
 import 'package:drappointment/components/custom_appbar.dart';
 import 'package:drappointment/utils/config.dart';
 import 'package:flutter/material.dart';
@@ -27,8 +28,8 @@ class _BookingPageState extends State<BookingPage> {
       appBar: const PreferredSize(
         preferredSize: Size.fromHeight(kToolbarHeight),
         child: CustomAppBar(
-          appTitle: 'Appointments',
-          appTile: 'Appointments',
+          appTitle: 'Appointment',
+          appTile: 'Appointment',
           icon: FaIcon(Icons.arrow_back_ios),
         ),
       ),
@@ -102,9 +103,8 @@ class _BookingPageState extends State<BookingPage> {
                             '${index + 9}:00 ${index + 9 > 11 ? "PM" : "AM"}',
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
-                              color: _currentIndex == index
-                                  ? Colors.white
-                                  : null,
+                              color:
+                                  _currentIndex == index ? Colors.white : null,
                             ),
                           ),
                         ),
@@ -117,6 +117,18 @@ class _BookingPageState extends State<BookingPage> {
                     childAspectRatio: 1.5,
                   ),
                 ),
+          SliverToBoxAdapter(
+            child: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 80),
+              child: Button(
+                title: 'Make Appointment',
+                width: double.infinity,
+                onPressed: () {},
+                disable: _timeSelected && _dateSelected ? false : true,
+                // Set background color here
+              ),
+            ),
+          )
         ],
       ),
     );
