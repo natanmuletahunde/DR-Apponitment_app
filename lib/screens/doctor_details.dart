@@ -51,7 +51,7 @@ class _DoctorDetailsState extends State<DoctorDetails> {
                 width: double.infinity,
                  onPressed: () {
               
-                Navigator.of(context).pushNamed('booking_page');
+                Navigator.of(context).pushNamed('/booking_page');
                }, disable: false
                ),
                )
