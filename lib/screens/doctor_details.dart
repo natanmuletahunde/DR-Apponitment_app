@@ -46,11 +46,13 @@ class _DoctorDetailsState extends State<DoctorDetails> {
              const DetailBody(),
                Padding(padding: 
                const EdgeInsets.all(20)
-               ,child: Button(title: 'Book Appointment',
+               ,child: Button(
+                title: 'Book Appointment',
                 width: double.infinity,
                  onPressed: () {
                 // navigate to booking page
                 // let's create that
+                Navigator.of(context).pushNamed('booking_page');
                }, disable: false
                ),
                )

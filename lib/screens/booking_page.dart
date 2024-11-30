@@ -26,7 +26,7 @@ class _BookingPageState extends State<BookingPage> {
       appBar: PreferredSize(
         preferredSize:  Size.fromHeight(kToolbarHeight),
         child:  CustomAppBar(
-          appTitle: '',
+          appTitle: 'Appointments',
           appTile: 'Appointments',
           icon: FaIcon(Icons.arrow_back_ios),
           
