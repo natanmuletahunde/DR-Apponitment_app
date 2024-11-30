@@ -50,8 +50,7 @@ class _DoctorDetailsState extends State<DoctorDetails> {
                 title: 'Book Appointment',
                 width: double.infinity,
                  onPressed: () {
-                // navigate to booking page
-                // let's create that
+              
                 Navigator.of(context).pushNamed('booking_page');
                }, disable: false
                ),

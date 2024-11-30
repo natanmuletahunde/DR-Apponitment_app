@@ -24,7 +24,7 @@ class _BookingPageState extends State<BookingPage> {
   Widget build(BuildContext context) {
     Config.init(context);
     return  Scaffold(
-      appBar: const PreferredSize(
+      appBar: const  PreferredSize(
         preferredSize: Size.fromHeight(kToolbarHeight),
         child: CustomAppBar(
           appTitle: 'Appointments',
@@ -37,8 +37,8 @@ class _BookingPageState extends State<BookingPage> {
           SliverToBoxAdapter(
             child: Column(
               children: <Widget>[
-                _tableCalender(), // Call method here
-                const Padding( // Padding can stay const
+                _tableCalender(), 
+                const Padding( 
                   padding: EdgeInsets.symmetric(
                     horizontal: 10,
                     vertical: 20,

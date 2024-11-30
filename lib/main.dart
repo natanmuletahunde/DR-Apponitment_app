@@ -49,8 +49,8 @@ class MyApp extends StatelessWidget {
         // this is for the main layout after login
         'main': (context) => const MainLayout(),
         'doc_details':(context) => const DoctorDetails(),
-        'booking_page':(context) => const BookingPage()
-      },
+        'booking_page': (context) => const BookingPage(),     
+         },
     );
   }
 }
