@@ -41,8 +41,9 @@ class _BookingPageState extends State<BookingPage> {
                 const Padding( 
                   padding: EdgeInsets.symmetric(
                     horizontal: 10,
-                    vertical: 20,
+                    vertical: 25,
                   ),
+                  
                 ),
               ]
             ),
@@ -53,44 +54,44 @@ class _BookingPageState extends State<BookingPage> {
   }
 
   // Table calendar widget
-  Widget _tableCalender() {
-    return TableCalendar(
-      focusedDay: _focusDay,
-      firstDay: DateTime.now(),
-      lastDay: DateTime(2023, 12, 31),
-      calendarFormat: _format,
-      currentDay: _currentDay, // Use _currentDay here
-      rowHeight: 48,
-      calendarStyle: const CalendarStyle(
-        todayDecoration: BoxDecoration(
-          color: Config.primaryColor,
-          shape: BoxShape.circle,
-        ),
+Widget _tableCalender() {
+  return TableCalendar(
+    focusedDay: _focusDay, // Ensure _focusDay is initialized properly
+    firstDay: DateTime.now(),
+    lastDay: DateTime(2024, 30, 11),
+    calendarFormat: _format,
+    currentDay: _currentDay, // Use _currentDay here
+    rowHeight: 48,
+    calendarStyle: const CalendarStyle(
+      todayDecoration: BoxDecoration(
+        color: Config.primaryColor,
+        shape: BoxShape.circle,
       ),
-      availableCalendarFormats: const {
-        CalendarFormat.month: 'Month',
-      },
-      onFormatChanged: (format) {
-        setState(() {
-          _format = format;
-        });
-      },
-      onDaySelected: (selectedDay, focusedDay) {
-        setState(() {
-          _currentDay = selectedDay;
-          _focusDay = focusedDay;
-          _dateSelected = true;
-      
-          if(selectedDay.weekday ==6 || selectedDay.weekday ==7){
-            _isWeekend = true;
-            _timeSelected = false;
-            _currentIndex = null;
-          }
-          else{
-            _isWeekend = false;
-          }
-        });
-      },
-    );
-  }
+    ),
+    availableCalendarFormats: const {
+      CalendarFormat.month: 'Month',
+    },
+    onFormatChanged: (format) {
+      setState(() {
+        _format = format;
+      });
+    },
+    onDaySelected: (selectedDay, focusedDay) {
+      setState(() {
+        _currentDay = selectedDay;
+        _focusDay = focusedDay;
+        _dateSelected = true;
+
+        if (selectedDay.weekday == 6 || selectedDay.weekday == 7) {
+          _isWeekend = true;
+          _timeSelected = false;
+          _currentIndex = null;
+        } else {
+          _isWeekend = false;
+        }
+      });
+    },
+  );
+}
+
 }

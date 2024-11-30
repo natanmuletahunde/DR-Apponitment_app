@@ -47,13 +47,16 @@ class _DoctorDetailsState extends State<DoctorDetails> {
                Padding(padding: 
                const EdgeInsets.all(20)
                ,child: Button(
-                title: 'Book Appointment',
-                width: double.infinity,
-                 onPressed: () {
-              
-                Navigator.of(context).pushNamed('/booking_page');
-               }, disable: false
-               ),
+  title: 'Book Appointment',
+  width: double.infinity,
+  onPressed: () {
+    // Use Navigator to navigate to the 'booking_page' route without the leading 
+    debugPrint('Navigating to booking_page');
+    Navigator.of(context).pushNamed('booking_page');
+  },
+  disable: false,
+),
+
                )
              ],
           ),
