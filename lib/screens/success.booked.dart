@@ -9,38 +9,50 @@ class AppointmentBooked extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-          child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          Expanded(
-            flex: 3,
-            child: Lottie.asset('assets/images/success.json'),
-          ),
-          Container(
-            width: double.infinity,
-            alignment: Alignment.center,
-            child: const Text(
-              'Successfully Booked',
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Expanded(
+              flex: 3,
+              child: Lottie.asset(
+                'assets/images/success.json',
+                errorBuilder: (context, error, stackTrace) {
+                  return const Icon(
+                    Icons.check_circle,
+                    color: Colors.green,
+                    size: 100,
+                  );
+                },
               ),
             ),
-          ),
-          const Spacer(),
-          Padding(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 10,
-              vertical: 15,
+            Container(
+              width: double.infinity,
+              alignment: Alignment.center,
+              child: const Text(
+                'Successfully Booked',
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
             ),
-            child: Button(
+            const Spacer(),
+            Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 10,
+                vertical: 15,
+              ),
+              child: Button(
                 title: 'Back to Home Page',
                 width: double.infinity,
                 onPressed: () => Navigator.of(context).pushNamed('main'),
-                disable: false, buttonColor:Colors.green,),
-          )
-        ],
-      )),
+                disable: false,
+                buttonColor: Colors.green,
+              ),
+            )
+          ],
+        ),
+      ),
     );
   }
 }

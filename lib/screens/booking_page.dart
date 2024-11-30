@@ -15,7 +15,7 @@ class BookingPage extends StatefulWidget {
 class _BookingPageState extends State<BookingPage> {
   CalendarFormat _format = CalendarFormat.month;
   DateTime _focusDay = DateTime.now();
-  DateTime _currentDay = DateTime.now(); // Declare _currentDay here
+  DateTime _currentDay = DateTime.now();
   int? _currentIndex;
   bool _isWeekend = false;
   bool _dateSelected = false;
@@ -38,7 +38,7 @@ class _BookingPageState extends State<BookingPage> {
           SliverToBoxAdapter(
             child: Column(
               children: <Widget>[
-                _tableCalender(),
+                _tableCalendar(),
                 const Padding(
                   padding: EdgeInsets.symmetric(
                     horizontal: 10,
@@ -57,12 +57,13 @@ class _BookingPageState extends State<BookingPage> {
               ],
             ),
           ),
-          // Display message for weekends or grid for time selection
           _isWeekend
               ? SliverToBoxAdapter(
                   child: Container(
                     padding: const EdgeInsets.symmetric(
-                        horizontal: 10, vertical: 30),
+                      horizontal: 10,
+                      vertical: 30,
+                    ),
                     alignment: Alignment.center,
                     child: const Text(
                       'Weekend is not available, please select another date',
@@ -117,42 +118,41 @@ class _BookingPageState extends State<BookingPage> {
                     childAspectRatio: 1.5,
                   ),
                 ),
-   SliverToBoxAdapter(
+          SliverToBoxAdapter(
   child: Container(
     padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 80),
     child: Button(
       title: 'Make Appointment',
       width: double.infinity,
-      // Use an empty function when the button is disabled
-      onPressed: _timeSelected && _dateSelected
+      // Handle the onPressed logic
+      onPressed: (_timeSelected && _dateSelected)
           ? () {
               // Navigate to success_booking page when the button is pressed
               Navigator.of(context).pushReplacementNamed('success_booking');
             }
-          : () {}, // Empty function when the button is disabled
-      disable: _timeSelected && _dateSelected ? false : true,
+          : () {}, // No-op function for when the button is disabled
+      disable: !(_timeSelected && _dateSelected), // Disable the button if conditions are not met
       // Set background color to green when enabled
-      buttonColor: _timeSelected && _dateSelected
+      buttonColor: (_timeSelected && _dateSelected)
           ? Colors.green // Green when enabled
           : Colors.grey, // Grey when disabled
     ),
   ),
 )
 
-
         ],
       ),
     );
   }
 
-  // Table calendar widget
-  Widget _tableCalender() {
+  // Table calendar widget with dynamic and scrollable date
+  Widget _tableCalendar() {
     return TableCalendar(
-      focusedDay: _focusDay, // Ensure _focusDay is initialized properly
-      firstDay: DateTime.now(),
-      lastDay: DateTime(2024, 11, 30), // Updated for the proper date format
+      focusedDay: _focusDay,
+      firstDay: DateTime(2022), // Allow scrolling to past years
+      lastDay: DateTime(2030), // Allow scrolling to future years
       calendarFormat: _format,
-      currentDay: _currentDay, // Use _currentDay here
+      currentDay: _currentDay,
       rowHeight: 48,
       calendarStyle: const CalendarStyle(
         todayDecoration: BoxDecoration(
@@ -162,6 +162,8 @@ class _BookingPageState extends State<BookingPage> {
       ),
       availableCalendarFormats: const {
         CalendarFormat.month: 'Month',
+        CalendarFormat.twoWeeks: '2 Weeks',
+        CalendarFormat.week: 'Week',
       },
       onFormatChanged: (format) {
         setState(() {
@@ -174,7 +176,9 @@ class _BookingPageState extends State<BookingPage> {
           _focusDay = focusedDay;
           _dateSelected = true;
 
-          if (selectedDay.weekday == 6 || selectedDay.weekday == 7) {
+          // Check if selected day is a weekend
+          if (selectedDay.weekday == DateTime.saturday ||
+              selectedDay.weekday == DateTime.sunday) {
             _isWeekend = true;
             _timeSelected = false;
             _currentIndex = null;
@@ -185,7 +189,6 @@ class _BookingPageState extends State<BookingPage> {
       },
       onPageChanged: (focusedDay) {
         setState(() {
-          // Update _focusDay when the user scrolls to a new month
           _focusDay = focusedDay;
         });
       },
