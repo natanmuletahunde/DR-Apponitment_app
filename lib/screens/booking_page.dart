@@ -23,8 +23,8 @@ class _BookingPageState extends State<BookingPage> {
   @override
   Widget build(BuildContext context) {
     Config.init(context);
-    return const Scaffold(
-      appBar: PreferredSize(
+    return  Scaffold(
+      appBar: const PreferredSize(
         preferredSize: Size.fromHeight(kToolbarHeight),
         child: CustomAppBar(
           appTitle: 'Appointments',
@@ -36,7 +36,15 @@ class _BookingPageState extends State<BookingPage> {
         slivers: <Widget>[
           SliverToBoxAdapter(
             child: Column(
-              children: <Widget>[],
+              children: <Widget>[
+                _tableCalender(), // Call method here
+                const Padding( // Padding can stay const
+                  padding: EdgeInsets.symmetric(
+                    horizontal: 10,
+                    vertical: 20,
+                  ),
+                ),
+              ]
             ),
           )
         ],
@@ -69,10 +77,10 @@ class _BookingPageState extends State<BookingPage> {
       },
       onDaySelected: (selectedDay, focusedDay) {
         setState(() {
-          _currentDay = selectedDay; // Update _currentDay here
+          _currentDay = selectedDay;
           _focusDay = focusedDay;
           _dateSelected = true;
-          // check is the weekend is selected
+      
           if(selectedDay.weekday ==6 || selectedDay.weekday ==7){
             _isWeekend = true;
             _timeSelected = false;
