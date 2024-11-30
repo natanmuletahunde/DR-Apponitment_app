@@ -12,11 +12,13 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-  static final navigatorKey = GlobalKey<NavigatorState>(); // used for managing the route of the app
+  static final navigatorKey =
+      GlobalKey<NavigatorState>(); // used for managing the route of the app
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false, // Fixed: Added value for debugShowCheckedModeBanner
+      debugShowCheckedModeBanner:
+          false, // Fixed: Added value for debugShowCheckedModeBanner
       navigatorKey: navigatorKey,
       title: 'Flutter Demo',
       theme: ThemeData(
@@ -44,16 +46,12 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: '/',
       routes: {
-        // this is the initial route
-        // which is the auth page (login and sign up)
         '/': (context) => const AuthPage(),
-        // this is for the main layout after login
         'main': (context) => const MainLayout(),
-        'doc_details':(context) => const DoctorDetails(),
-        'booking_page': (context) => const BookingPage(), 
-        'success_booking': (context) => const AppointmentBooked(),     
-
-         },
+        'doc_details': (context) => const DoctorDetails(),
+        'booking_page': (context) => const BookingPage(),
+       'success_booking': (context) => const AppointmentBooked(), // Ensure this is correct
+      },
     );
   }
 }

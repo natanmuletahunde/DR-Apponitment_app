@@ -7,7 +7,7 @@ class Button extends StatelessWidget {
       required this.title,
       required this.width,
       required this.onPressed,
-      required this.disable});
+      required this.disable, required MaterialColor buttonColor});
   final double width;
   final String title;
   final bool disable;

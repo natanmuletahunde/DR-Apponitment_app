@@ -117,21 +117,29 @@ class _BookingPageState extends State<BookingPage> {
                     childAspectRatio: 1.5,
                   ),
                 ),
-          SliverToBoxAdapter(
-            child: Container(
-              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 80),
-              child: Button(
-                title: 'Make Appointment',
-                width: double.infinity,
-                onPressed: () {
-                 Navigator.of(context).pushNamed('success_booking');
-                },
-                disable: _timeSelected && _dateSelected ? false : true,
-                // Set background color here
-              ),
+   SliverToBoxAdapter(
+  child: Container(
+    padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 80),
+    child: Button(
+      title: 'Make Appointment',
+      width: double.infinity,
+      // Use an empty function when the button is disabled
+      onPressed: _timeSelected && _dateSelected
+          ? () {
+              // Navigate to success_booking page when the button is pressed
+              Navigator.of(context).pushReplacementNamed('success_booking');
+            }
+          : () {}, // Empty function when the button is disabled
+      disable: _timeSelected && _dateSelected ? false : true,
+      // Set background color to green when enabled
+      buttonColor: _timeSelected && _dateSelected
+          ? Colors.green // Green when enabled
+          : Colors.grey, // Grey when disabled
+    ),
+  ),
+)
 
-            ),
-          )
+
         ],
       ),
     );
@@ -173,6 +181,12 @@ class _BookingPageState extends State<BookingPage> {
           } else {
             _isWeekend = false;
           }
+        });
+      },
+      onPageChanged: (focusedDay) {
+        setState(() {
+          // Update _focusDay when the user scrolls to a new month
+          _focusDay = focusedDay;
         });
       },
     );

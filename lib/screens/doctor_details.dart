@@ -54,7 +54,7 @@ class _DoctorDetailsState extends State<DoctorDetails> {
     debugPrint('Navigating to booking_page');
     Navigator.of(context).pushNamed('booking_page');
   },
-  disable: false,
+  disable: false, buttonColor:Colors.grey,
 ),
 
                )

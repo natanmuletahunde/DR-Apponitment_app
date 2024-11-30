@@ -37,7 +37,7 @@ class AppointmentBooked extends StatelessWidget {
                 title: 'Back to Home Page',
                 width: double.infinity,
                 onPressed: () => Navigator.of(context).pushNamed('main'),
-                disable: false),
+                disable: false, buttonColor:Colors.green,),
           )
         ],
       )),
