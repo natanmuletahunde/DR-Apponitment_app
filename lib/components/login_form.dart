@@ -70,6 +70,7 @@ class _LoginFormState extends State<LoginForm> {
               width: double.infinity,
               onPressed: ()async {
                final token = await DioProvider().getToken(_emailController.text, _passController.text);
+               final user = await DioProvider().getUser();
                print(token);
               },
               disable: false, buttonColor: Colors.green,)
