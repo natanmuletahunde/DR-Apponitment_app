@@ -66,15 +66,24 @@ class _LoginFormState extends State<LoginForm> {
           ),
           Config.spaceSmall,
           Button(
-              title: 'Sign In ',
-              width: double.infinity,
-              onPressed: ()async {
-               final token = await DioProvider().getToken(_emailController.text, _passController.text);
-               final user = await DioProvider().getUser();
-               print(token);
-              },
-              disable: false, buttonColor: Colors.green,)
-          //  login button
+            title: 'Sign In',
+            width: double.infinity,
+            onPressed: () async {
+              final token = await DioProvider()
+                  .getToken(_emailController.text, _passController.text);
+
+              // Check if token is returned
+              if (token != null) {
+                print('Token: $token');
+                final user = await DioProvider().getUser(); // Get user data
+                print(user); // Print user data
+              } else {
+                print('Login failed or token not received');
+              }
+            },
+            disable: false,
+            buttonColor: Colors.green,
+          )
         ],
       ),
     );
