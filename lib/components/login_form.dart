@@ -1,6 +1,5 @@
 import 'package:drappointment/components/button.dart';
 import 'package:drappointment/providers/dio_provider.dart';
-import 'package:drappointment/screens/home_page.dart'; // Import your HomePage
 import 'package:drappointment/utils/config.dart';
 import 'package:flutter/material.dart';
 
@@ -70,26 +69,18 @@ class _LoginFormState extends State<LoginForm> {
             title: 'Sign In',
             width: double.infinity,
             onPressed: () async {
-              final token = await DioProvider()
-                  .getToken(_emailController.text, _passController.text);
-              if (token != null) {
-                print('Token: $token');
-                final user = await DioProvider().getUser();
-                print(user);
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const HomePage(),
-                  ),
-                );
-              } else {
-                print('Login failed or token not received');
-                // Show an error message (optional)
-                ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(
-                    content: Text('Login failed. Please try again.'),
-                  ),
-                );
+              try {
+                final token = await DioProvider()
+                    .getToken(_emailController.text, _passController.text);
+
+                if (token is String) {
+                  final user = await DioProvider().getUser(token);
+                  print(user);
+                } else {
+                  print("Error: Token is not a string.");
+                }
+              } catch (e) {
+                print("Error: $e");
               }
             },
             disable: false,

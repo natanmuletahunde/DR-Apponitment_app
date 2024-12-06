@@ -18,7 +18,6 @@ class CustomAppBar extends StatefulWidget {
   final String? route;
   final FaIcon? icon;
   final List<Widget>? action;
-
   @override
   State<CustomAppBar> createState() => _CustomAppBarState();
 }
