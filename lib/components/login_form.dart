@@ -1,6 +1,5 @@
 import 'package:drappointment/components/button.dart';
 import 'package:drappointment/providers/dio_provider.dart';
-import 'package:drappointment/screens/home_page.dart';
 import 'package:drappointment/utils/config.dart';
 import 'package:flutter/material.dart';
 
@@ -76,7 +75,8 @@ class _LoginFormState extends State<LoginForm> {
                   _emailController.text,
                   _passController.text,
                 );
-               print(token);
+                final user = await DioProvider().getUser();
+               print(user);
                 
               },
               disable: false,
