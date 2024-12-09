@@ -1,7 +1,8 @@
-import 'package:drappointment/components/button.dart';
-import 'package:drappointment/providers/dio_provider.dart';
-import 'package:drappointment/utils/config.dart';
 import 'package:flutter/material.dart';
+import 'package:drappointment/components/button.dart';
+import 'package:drappointment/utils/config.dart';
+import 'package:http/http.dart' as http; // Import http package
+import 'dart:convert'; // For JSON encoding/decoding
 
 class LoginForm extends StatefulWidget {
   const LoginForm({super.key});
@@ -16,9 +17,29 @@ class _LoginFormState extends State<LoginForm> {
   final _passController = TextEditingController();
   bool obsecurPass = true;
 
+  // Function to get the token from API using email and password
+  Future<dynamic> getToken(String email, String password) async {
+    try {
+      final response = await http.post(
+        Uri.parse('http://127.0.0.1:8000/api/login'), // Update with your IP
+        headers: {'Content-Type': 'application/json'}, // Set the header to JSON
+        body: jsonEncode({'email': email, 'password': password}), // Send data as JSON
+      );
+
+      if (response.statusCode == 200) {
+        return jsonDecode(response.body); // Return token if login is successful
+      } else {
+        return null; // Return null if login fails
+      }
+    } catch (error) {
+      print('Error: $error');
+      return null;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView( // Added SingleChildScrollView
+    return SingleChildScrollView(
       child: Form(
         key: _formKey,
         child: Column(
@@ -70,23 +91,23 @@ class _LoginFormState extends State<LoginForm> {
               title: 'Sign In',
               width: double.infinity,
               onPressed: () async {
-                try {
-                  final token = await DioProvider()
-                      .getToken(_emailController.text, _passController.text);
+                // Attempt to get the token using the updated getToken method
+                final token = await getToken(
+                  _emailController.text,
+                  _passController.text,
+                );
 
-                  if (token is String) {
-                    final user = await DioProvider().getUser(token);
-                    print(user);
-                  } else {
-                    print("Error: Token is not a string.");
-                  }
-                } catch (e) {
-                  print("Error: $e");
+                if (token != null) {
+                  print('Token: $token');
+                  // Navigate to another page or handle the login success
+                } else {
+                  print('Login failed. Invalid credentials.');
+                  // Show an error message to the user
                 }
               },
               disable: false,
               buttonColor: Colors.green,
-            )
+            ),
           ],
         ),
       ),
