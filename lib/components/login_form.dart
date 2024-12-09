@@ -1,8 +1,8 @@
+import 'package:drappointment/screens/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:drappointment/components/button.dart';
+import 'package:drappointment/providers/dio_provider.dart';
 import 'package:drappointment/utils/config.dart';
-import 'package:http/http.dart' as http; // Import http package
-import 'dart:convert'; // For JSON encoding/decoding
 
 class LoginForm extends StatefulWidget {
   const LoginForm({super.key});
@@ -16,26 +16,6 @@ class _LoginFormState extends State<LoginForm> {
   final _emailController = TextEditingController();
   final _passController = TextEditingController();
   bool obsecurPass = true;
-
-  // Function to get the token from API using email and password
-  Future<dynamic> getToken(String email, String password) async {
-    try {
-      final response = await http.post(
-        Uri.parse('http://127.0.0.1:8000/api/login'), // Update with your IP
-        headers: {'Content-Type': 'application/json'}, // Set the header to JSON
-        body: jsonEncode({'email': email, 'password': password}), // Send data as JSON
-      );
-
-      if (response.statusCode == 200) {
-        return jsonDecode(response.body); // Return token if login is successful
-      } else {
-        return null; // Return null if login fails
-      }
-    } catch (error) {
-      print('Error: $error');
-      return null;
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -91,15 +71,21 @@ class _LoginFormState extends State<LoginForm> {
               title: 'Sign In',
               width: double.infinity,
               onPressed: () async {
-                // Attempt to get the token using the updated getToken method
-                final token = await getToken(
+                // Attempt to get the token
+                final token = await DioProvider().getToken(
                   _emailController.text,
                   _passController.text,
                 );
 
                 if (token != null) {
                   print('Token: $token');
-                  // Navigate to another page or handle the login success
+                  // Navigate to the homepage
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) =>
+                            HomePage()), // Replace 'HomePage' with your actual homepage widget
+                  );
                 } else {
                   print('Login failed. Invalid credentials.');
                   // Show an error message to the user

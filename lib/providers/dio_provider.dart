@@ -1,47 +1,35 @@
-import 'dart:convert'; // For JSON encoding/decoding
-import 'package:http/http.dart' as http; // Import http package
+import 'dart:convert';
 
-class HttpProvider {
-  // Function to get a token by sending login credentials
+import 'package:dio/dio.dart';
+
+class DioProvider {
   Future<dynamic> getToken(String email, String password) async {
     try {
-      // Send a POST request to the login API
-      final response = await http.post(
-        Uri.parse('http://127.0.0.1:8000/api/login'), // Update with your IP
-        headers: {'Content-Type': 'application/json'}, // Optional: Specify JSON type
-        body: jsonEncode({'email': email, 'password': password}), // Convert data to JSON
+      var response = await Dio().post(
+        'http://127.0.0.1:8000/api/login', // Update with your IP
+        data: {'email': email, 'password': password},
       );
 
-      // Check if the response is successful (status code 200)
-      if (response.statusCode == 200) {
-        return jsonDecode(response.body); // Return the token response data
-      } else {
-        throw Exception('Failed to authenticate: ${response.statusCode}');
+      if (response.statusCode == 200 && response.data != null) {
+        return response.data; // Returning the token response data
       }
     } catch (error) {
       print('Error: $error'); // Print error to debug
-      return error; // Return the error
+      return error;
     }
   }
-
-  // Function to get the user data using a Bearer token
   Future<dynamic> getUser(String token) async {
     try {
-      // Send a GET request to the user API
-      final response = await http.get(
-        Uri.parse('http://127.0.0.1:8000/api/user'), // Update with your IP
-        headers: {'Authorization': 'Bearer $token'}, // Set Authorization header
+      var user = await Dio().get(
+        'http://127.0.0.1:8000/api/user',
+        options: Options(headers: {'Authorization':'Bearer $token'}) // Update with your IP
       );
-
-      // Check if the response is successful (status code 200)
-      if (response.statusCode == 200) {
-        return jsonDecode(response.body); // Parse and return the user data
-      } else {
-        throw Exception('Failed to fetch user data: ${response.statusCode}');
+      if (user.statusCode == 200 && user.data != null) {
+        return json.encode(user.data);
       }
     } catch (error) {
       print('Error: $error'); // Print error to debug
-      return error; // Return the error
+      return error;
     }
   }
 }
