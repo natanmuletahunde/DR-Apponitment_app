@@ -67,32 +67,31 @@ class _LoginFormState extends State<LoginForm> {
               ),
             ),
             Config.spaceSmall,
-            Button(
-              title: 'Sign In',
-              width: double.infinity,
-             onPressed: () async {
-  // Attempt to get the token
-  final token = await DioProvider().getToken(
-    _emailController.text,
-    _passController.text,
-  );
-  
-  final user = await DioProvider().getUser();
-  print(user);
-
-  // Navigate to the home screen
-  if (token != null && user != null) {
-    Navigator.pushReplacement(
-      context,
-      MaterialPageRoute(builder: (context) => const HomePage()), // Replace with your home screen widget
+         Button(
+  title: 'Sign In',
+  width: double.infinity,
+  onPressed: () async {
+    // Attempt to get the token
+    final token = await DioProvider().getToken(
+      _emailController.text,
+      _passController.text,
     );
-  }
-},
-  
 
-              disable: false,
-              buttonColor: Colors.green,
-            ),
+    final user = await DioProvider().getUser();
+    print(user);
+
+    // Navigate to the HomePage
+    if (token != null && user != null) {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => HomePage()), // Ensure HomePage() is your actual home screen widget
+      );
+    }
+  },
+  disable: false,
+  buttonColor: Colors.green,
+)
+
           ],
         ),
       ),
