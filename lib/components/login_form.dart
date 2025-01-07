@@ -1,5 +1,6 @@
 import 'package:drappointment/components/button.dart';
 import 'package:drappointment/providers/dio_provider.dart';
+import 'package:drappointment/screens/home_page.dart';
 import 'package:drappointment/utils/config.dart';
 import 'package:flutter/material.dart';
 
@@ -69,16 +70,25 @@ class _LoginFormState extends State<LoginForm> {
             Button(
               title: 'Sign In',
               width: double.infinity,
-              onPressed: () async {
-                // Attempt to get the token
-                final token = await DioProvider().getToken(
-                  _emailController.text,
-                  _passController.text,
-                );
-                final user = await DioProvider().getUser();
-               print(user);
-                
-              },
+             onPressed: () async {
+  // Attempt to get the token
+  final token = await DioProvider().getToken(
+    _emailController.text,
+    _passController.text,
+  );
+  
+  final user = await DioProvider().getUser();
+  print(user);
+
+  // Navigate to the home screen
+  if (token != null && user != null) {
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (context) => HomePage()), // Replace with your home screen widget
+    );
+  }
+},
+
               disable: false,
               buttonColor: Colors.green,
             ),
